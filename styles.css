@@ -1,0 +1,85 @@
+:root {
+    --bg-color: #ff8e7133;
+    --header-bg-color: #FFC2B3;
+    --header-text-color: #FF481A;
+    --button-bg-color: #FF8E71;
+    --button-hover-bg-color: #ff6e6180;
+    --negate-button-bg-color: #FFC2B34A;
+    --button-text-color: white;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: 'Arial', sans-serif;
+}
+
+.calculator-container {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator-container .calculator-box {
+    width: 300px;
+    height: 100%;
+    max-height: 600px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.calculator-box .calculator-header {
+    height: 200px;
+    background: var(--header-bg-color);
+    color: var(--header-text-color);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 20px;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.calculator-box .calculator-buttons {
+    background-color: var(--button-bg-color);
+    font-size: 2em;
+    height: calc(100% - 200px);
+    display: grid;
+    padding: 6px;
+}
+
+.calculator-box .calculator-buttons .button-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    padding: 3px;
+}
+
+.calculator-box .calculator-buttons .button-row button {
+    background: transparent;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    color: var(--button-text-color);
+    transition: all 0.5s ease-out;
+    cursor: pointer;
+}
+
+.calculator-box .calculator-buttons .button-row button:hover {
+    background: var(--button-hover-bg-color);
+}
+
+.calculator-box .calculator-buttons .button-row button:focus {
+    outline: 3px solid var(--header-text-color);
+    outline-offset: 2px;
+}
+
+.calculator-box .calculator-buttons .button-row .negate {
+    background: var(--negate-button-bg-color);
+}
