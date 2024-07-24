@@ -13,4 +13,4 @@ Accessible Basic Calculator is a simple yet functional calculator built with Jav
 
 ## Demo
 
-You can use the calculator [here](https://anastacodes.github.io/BasicCalcJS/).
+You can use the calculator [here](https://anastacodes.github.io/BasicCalculator/).
