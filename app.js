@@ -15,6 +15,24 @@ calculatorBox.addEventListener('click', (event) => {
     listener(currentClass, currentValue);
 });
 
+// Add event listener for keyboard input
+document.addEventListener('keydown', (event) => {
+    const key = event.key;
+    if (!isNaN(key) || key === '.') {
+        listener('number', key);
+    } else if (key === '+' || key === '-' || key === '*' || key === '/') {
+        listener('operator', key);
+    } else if (key === 'Enter') {
+        listener('calculate', '=');
+    } else if (key === 'Backspace') {
+        listener('delete', '⌫');
+    } else if (key === 'Escape') {
+        listener('clear', 'C');
+    } else if (key === '%') {
+        listener('percent', '%');
+    }
+});
+
 // Main event listener function
 function listener(currentClass, currentValue) {
     switch (currentClass) {
@@ -25,7 +43,8 @@ function listener(currentClass, currentValue) {
         case "division":
         case "subtraction":
         case "addition":
-            setOperator(currentClass);
+        case "operator":
+            setOperator(currentValue);
             break;
         case "calculate":
             handleCalculation();
@@ -62,18 +81,18 @@ function handleNumber(value) {
 }
 
 // Set the operator
-function setOperator(operatorClass) {
-    switch (operatorClass) {
-        case "multiplication":
+function setOperator(value) {
+    switch (value) {
+        case "*":
             operator = '*';
             break;
-        case "division":
+        case "/":
             operator = '/';
             break;
-        case "subtraction":
+        case "-":
             operator = '-';
             break;
-        case "addition":
+        case "+":
             operator = '+';
             break;
     }

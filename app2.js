@@ -16,6 +16,38 @@ buttons.forEach((button) => {
     });
 });
 
+// Add event listener for keyboard input
+document.addEventListener('keydown', (event) => {
+    const key = event.key;
+    if (!isNaN(key) || key === '.') {
+        handleOperation(key);
+    } else if (key === '+' || key === '-' || key === '*' || key === '/') {
+        handleOperation(convertOperator(key));
+    } else if (key === 'Enter') {
+        handleOperation('=');
+    } else if (key === 'Backspace') {
+        handleOperation('⌫');
+    } else if (key === 'Escape') {
+        handleOperation('C');
+    } else if (key === '%') {
+        handleOperation('%');
+    }
+});
+
+// Convert operator from keyboard input to calculator's display format
+function convertOperator(key) {
+    switch (key) {
+        case '*':
+            return '×';
+        case '/':
+            return '/';
+        case '+':
+            return '+';
+        case '-':
+            return '-';
+    }
+}
+
 // Main operation handler
 function handleOperation(value) {
     switch (value) {
